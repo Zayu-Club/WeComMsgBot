@@ -1,0 +1,22 @@
+{
+    "corpid": "",
+    "corpsecret": "",
+    "remindServerChan": {
+        "enable": "false",
+        "sckey": ""
+    },
+    "remindPushBear": {
+        "enable": "false",
+        "SendKey": ""
+    },
+    "remindMail": {
+        "enable": "false",
+        "smtp_host": "",
+        "smtp_user": "",
+        "smtp_pass": "",
+        "sender": "",
+        "receivers": [
+            ""
+        ]
+    }
+}
