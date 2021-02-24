@@ -15,7 +15,6 @@ def getConfig(configPath, rwopt):
             config = json.load(jsonFile)
         jsonFile.close()
     except Exception as e:
-        logger.critical("Loading configuration failed:", e)
-        print(e)
+        logger.exception(e)
     logger.info(f"Loading configuration:{configPath} successfully")
     return config
