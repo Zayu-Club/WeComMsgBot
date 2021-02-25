@@ -1,12 +1,17 @@
+from globalvarHelper import globalvarHelper
 import json
+import os
 import logging
 import logging.config
 
-LOG_CONF_PATH = ".\\conf\\log.conf"
+if(not os.path.exists(".\\log")):
+    try:
+        os.mkdir(".\\log")
+    except Exception as e:
+        print(e)
 
-logging.config.fileConfig(LOG_CONF_PATH)
+logging.config.fileConfig(globalvarHelper().getGlobalVar('LOG_CONF_PATH'))
 logger = logging.getLogger('common')
-
 
 def getConfig(configPath, rwopt):
     config = ''
