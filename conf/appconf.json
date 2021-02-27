@@ -1,13 +1,18 @@
 {
     "corpid": "",
+    "agentid": "",
     "corpsecret": "",
-    "remindServerChan": {
+    "remind_Users": {
         "enable": "false",
-        "sckey": ""
+        "receivers_userid": ""
     },
-    "remindPushBear": {
+    "remind_Party": {
         "enable": "false",
-        "SendKey": ""
+        "receivers_partyid": ""
+    },
+    "remind_Tag": {
+        "enable": "false",
+        "receivers_tagid": ""
     },
     "remindMail": {
         "enable": "false",
