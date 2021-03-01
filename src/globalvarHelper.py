@@ -1,4 +1,5 @@
 #use:globalvarHelper().getGlobalVar('KEY')
+from enum import Enum
 
 class globalvarHelper:
     __DICT_GOLVAR = {
@@ -9,3 +10,9 @@ class globalvarHelper:
   
     def getGlobalVar(self,key):
         return self.__DICT_GOLVAR[key]
+
+class MaterialType(Enum):
+    image = 'image'
+    voice = 'voice'
+    video = 'video'
+    file = 'file'

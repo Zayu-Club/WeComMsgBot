@@ -4,7 +4,7 @@
     "corpsecret": "",
     "remind_Users": {
         "enable": "false",
-        "receivers_userid": ""
+        "receivers_userid": "XieXiaoYang"
     },
     "remind_Party": {
         "enable": "false",

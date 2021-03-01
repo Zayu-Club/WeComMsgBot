@@ -1,4 +1,4 @@
-from globalvarHelper import globalvarHelper
+from globalvarHelper import globalvarHelper,MaterialType
 import json
 import logging
 import logging.config
@@ -17,8 +17,16 @@ def getAccessToken(corpid,corpsecret):
         return access_token
     except Exception as e:
         logger.error('Request access token failed.')
+
+#未完成的方法！
+def getMaterialMediaId(access_token,materialType:MaterialType,filePath):
+    materialFile = {'file' : open(filePath, 'r')}
+    reponse = requests.post('https://qyapi.weixin.qq.com/cgi-bin/media/upload',\
+        params={'access_token': access_token,'type': materialType}
+        data=dict, headers=dict)
+    return 0
     
-def sendSimpleMessage(access_token,msg_json):
+def sendMessage(access_token,msg_json):
     try:
         reponse = requests.post('https://qyapi.weixin.qq.com/cgi-bin/message/send',\
             params={'access_token': access_token},\
