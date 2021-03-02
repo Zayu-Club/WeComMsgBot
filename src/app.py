@@ -1,4 +1,5 @@
 from logging import config
+from os import pipe
 from globalvarHelper import globalvarHelper
 from common import *
 from wecombasic import *
@@ -20,7 +21,10 @@ def main():
     #sendMessage(access_token,msgjson)
 
     #Upload Tempfile
-    getMaterialMediaId(access_token,MaterialType.image,'.\\img\\test_Image0.png')
+    receivers_userid = app_config['remind_Users']['receivers_userid']
+    media_id = getMaterialMediaId(access_token,MaterialType.image,'.\\img\\test_Image0.png')
+    msgjson = getImageMessageJson(agentid,media_id,receivers_userid)
+    sendMessage(access_token,msgjson)
    
 if __name__ == "__main__":
     main()

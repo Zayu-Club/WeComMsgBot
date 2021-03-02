@@ -1,5 +1,4 @@
 from globalvarHelper import globalvarHelper,MaterialType
-from requests_toolbelt import MultipartEncoder
 import json
 import logging
 import logging.config
@@ -19,23 +18,21 @@ def getAccessToken(corpid,corpsecret):
     except Exception as e:
         logger.error('Request access token failed.')
 
-#未完成的方法！
 def getMaterialMediaId(access_token,materialType:MaterialType,fileName):
-    #materialFile = {'file' : open(filePath, 'r')}
-    materialFile = MultipartEncoder(
-        fields={'materialFile0': ('file', open(fileName, 'rb'), 'multipart/form-data')},
-    )
-    reponse = requests.post('https://qyapi.weixin.qq.com/cgi-bin/media/upload',\
-        params = {'access_token': access_token,\
-            'type': 'image'},\
-        data = materialFile,\
-        headers = {'Content-Type': 'image; multipart/form-data; boundary=-------------------------acebdf13572468',\
-            'Content-Disposition':'form-data; name="image";filename="aaaaaaa"; filelength=10',\
-            'Content-Type': 'application/octet-stream'
-            }
-        )
-    logger.debug(reponse.text)
-    return reponse.text
+    try:
+        files = {'media': open(fileName, 'rb')}
+    except Exception as e:
+        logger.error("Failed to open material.")
+    try:
+        reponse = requests.post('https://qyapi.weixin.qq.com/cgi-bin/media/upload',\
+            params = {'access_token': access_token,\
+                'type': 'image'},\
+                files = files,\
+            )
+        logger.debug(reponse.text)    
+        return json.loads(reponse.text).get('media_id')
+    except Exception as e:
+        logger.exception('Failed to get media_id.')
     
 def sendMessage(access_token,msg_json):
     try:

@@ -16,7 +16,7 @@ def main():
     #Send message
     msgContent = "一个测试消息。\n测试链接：<a href=\"https://azure0.xxy233.xyz\">点一下这个链接</a>"
     receivers_userid = app_config['remind_Users']['receivers_userid']
-    msgjson = getSimpleMessageJson(agentid,msgContent,receivers_userid)
+    msgjson = getTextMessageJson(agentid,msgContent,receivers_userid)
     sendMessage(access_token,msgjson)
    
 if __name__ == "__main__":

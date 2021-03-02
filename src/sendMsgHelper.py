@@ -32,7 +32,7 @@ def getImageMessageJson(agentid,media_id,touser=None,toparty=None,totag=None,saf
         'touser':touser,\
         'toparty':toparty,\
         'totag':totag,\
-        'msgtype':MaterialType.image,\
+        'msgtype':'image',\
         'agentid':agentid,\
         'image':{\
             'media_id':media_id\
