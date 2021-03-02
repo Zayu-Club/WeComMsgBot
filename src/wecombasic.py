@@ -1,4 +1,5 @@
 from globalvarHelper import globalvarHelper,MaterialType
+from requests_toolbelt import MultipartEncoder
 import json
 import logging
 import logging.config
@@ -19,12 +20,22 @@ def getAccessToken(corpid,corpsecret):
         logger.error('Request access token failed.')
 
 #未完成的方法！
-def getMaterialMediaId(access_token,materialType:MaterialType,filePath):
-    materialFile = {'file' : open(filePath, 'r')}
+def getMaterialMediaId(access_token,materialType:MaterialType,fileName):
+    #materialFile = {'file' : open(filePath, 'r')}
+    materialFile = MultipartEncoder(
+        fields={'materialFile0': ('file', open(fileName, 'rb'), 'multipart/form-data')},
+    )
     reponse = requests.post('https://qyapi.weixin.qq.com/cgi-bin/media/upload',\
-        params={'access_token': access_token,'type': materialType}
-        data=dict, headers=dict)
-    return 0
+        params = {'access_token': access_token,\
+            'type': 'image'},\
+        data = materialFile,\
+        headers = {'Content-Type': 'image; multipart/form-data; boundary=-------------------------acebdf13572468',\
+            'Content-Disposition':'form-data; name="image";filename="aaaaaaa"; filelength=10',\
+            'Content-Type': 'application/octet-stream'
+            }
+        )
+    logger.debug(reponse.text)
+    return reponse.text
     
 def sendMessage(access_token,msg_json):
     try:

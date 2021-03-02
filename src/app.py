@@ -14,10 +14,13 @@ def main():
     access_token = getAccessToken(corpid,corpsecret)
 
     #Send message
-    msgContent = "一个测试消息。\n测试链接：<a href=\"https://azure0.xxy233.xyz\">点一下这个链接</a>"
-    receivers_userid = app_config['remind_Users']['receivers_userid']
-    msgjson = getTextMessageJson(agentid,msgContent,receivers_userid)
-    sendMessage(access_token,msgjson)
+    #msgContent = "一个测试消息。\n测试链接：<a href=\"https://azure0.xxy233.xyz\">点一下这个链接</a>"
+    #receivers_userid = app_config['remind_Users']['receivers_userid']
+    #msgjson = getTextMessageJson(agentid,msgContent,receivers_userid)
+    #sendMessage(access_token,msgjson)
+
+    #Upload Tempfile
+    getMaterialMediaId(access_token,MaterialType.image,'.\\img\\test_Image0.png')
    
 if __name__ == "__main__":
     main()
