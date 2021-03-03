@@ -3,7 +3,7 @@
     "agentid": "",
     "corpsecret": "",
     "remind_Users": {
-        "enable": "false",
+        "enable": "",
         "receivers_userid": ""
     },
     "remind_Party": {

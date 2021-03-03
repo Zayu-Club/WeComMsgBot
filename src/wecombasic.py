@@ -26,7 +26,7 @@ def getMaterialMediaId(access_token,materialType:MaterialType,fileName):
     try:
         reponse = requests.post('https://qyapi.weixin.qq.com/cgi-bin/media/upload',\
             params = {'access_token': access_token,\
-                'type': 'image'},\
+                'type': materialType.name},\
                 files = files,\
             )
         logger.debug(reponse.text)    
@@ -39,6 +39,7 @@ def sendMessage(access_token,msg_json):
         reponse = requests.post('https://qyapi.weixin.qq.com/cgi-bin/message/send',\
             params={'access_token': access_token},\
             data=msg_json)
+        logger.debug(reponse.text)
         logger.info("Message sent successfully.")
     except Exception as e:
         logger.error('Failed to send message.')

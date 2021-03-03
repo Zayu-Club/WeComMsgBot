@@ -2,7 +2,7 @@ from logging import config
 from globalvarHelper import globalvarHelper
 from common import *
 from wecombasic import *
-from sendMsgHelper import *
+from msgJsonHelper import *
 
 def main():
     app_config = getConfig(globalvarHelper().getGlobalVar('APP_CONF_PATH'), 'r')
