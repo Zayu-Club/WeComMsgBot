@@ -156,3 +156,21 @@ def getMpnewsMessageJson(agent_id,mpnews_title,media_id,mpnews_content,url=None,
     message_json = json.dumps(message_dic)
     logger.debug(message_json)
     return message_json
+
+def getMarkdownMessageJson(agent_id,content,touser=None,toparty=None,totag=None,\
+    enable_duplicate_check=0,duplicate_check_interval=1800):
+    message_dic = {\
+        'touser':touser,\
+        'toparty':toparty,\
+        'totag':totag,\
+        'msgtype':'markdown',\
+        'agentid':agent_id,\
+        'text':{\
+            'content':content\
+        },\
+        'enable_duplicate_check':enable_duplicate_check,\
+        'duplicate_check_interval':duplicate_check_interval,\
+    }
+    message_json = json.dumps(message_dic)
+    logger.debug(message_json)
+    return message_json
