@@ -1,17 +1,12 @@
-from globalvarHelper import globalvarHelper
+import sys
 import json
-import os
 import logging
 import logging.config
+import globalvar
 
-if(not os.path.exists(".\\log")):
-    try:
-        os.mkdir(".\\log")
-    except Exception as e:
-        print(e)
-
-logging.config.fileConfig(globalvarHelper().getGlobalVar('LOG_CONF_PATH'))
+logging.config.fileConfig(globalvar.DICT_GOLVAR['LOG_CONF_PATH'])
 logger = logging.getLogger('common')
+
 
 def getConfig(configPath, rwopt):
     config = ''
@@ -20,6 +15,8 @@ def getConfig(configPath, rwopt):
             config = json.load(jsonFile)
         jsonFile.close()
     except Exception as e:
+        logger.error(f"Loading configuration:{configPath} failed")
         logger.exception(e)
+        sys.exit()
     logger.info(f"Loading configuration:{configPath} successfully")
     return config

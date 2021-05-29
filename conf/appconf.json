@@ -3,8 +3,8 @@
     "agentid": "",
     "corpsecret": "",
     "remind_Users": {
-        "enable": "false",
-        "receivers_userid": ""
+        "enable": "ture",
+        "receivers_userid": "XieXiaoYang"
     },
     "remind_Party": {
         "enable": "false",
