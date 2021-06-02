@@ -3,7 +3,6 @@ import logging.config
 import os
 import sys
 
-__all__ = ['common', 'globalvar', 'msgJsonHelper', 'wecombasic']
 logging.basicConfig(level=logging.DEBUG,
                     format='[%(asctime)19s] [%(levelname)-s] [%(filename)-s] %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S')

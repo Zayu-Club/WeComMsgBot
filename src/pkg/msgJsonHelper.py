@@ -1,7 +1,8 @@
 import json
 import logging
 import logging.config
-import globalvar
+#import globalvar
+from . import globalvar
 
 logging.config.fileConfig(globalvar.DICT_GOLVAR['LOG_CONF_PATH'])
 logger = logging.getLogger('sendMsgHelper')
@@ -89,7 +90,7 @@ def setVideoMessageJson(agent_id, media_id, video_title, video_description, tous
     return message_json
 
 
-def getFileMessageJson(agent_id, media_id, touser=None, toparty=None, totag=None, safe=0,
+def setFileMessageJson(agent_id, media_id, touser=None, toparty=None, totag=None, safe=0,
                        enable_duplicate_check=0, duplicate_check_interval=1800):
     message_dic = {
         'touser': touser,
@@ -109,7 +110,7 @@ def getFileMessageJson(agent_id, media_id, touser=None, toparty=None, totag=None
     return message_json
 
 
-def getTextCardMessageJson(agent_id, textcard_title, textcard_description, textcard_url,
+def setTextCardMessageJson(agent_id, textcard_title, textcard_description, textcard_url,
                            textcard_btntxt='More', touser=None, toparty=None, totag=None, enable_id_trans=0,
                            enable_duplicate_check=0, duplicate_check_interval=1800):
     message_dic = {
@@ -133,7 +134,7 @@ def getTextCardMessageJson(agent_id, textcard_title, textcard_description, textc
     return message_json
 
 
-def getMpnewsMessageJson(agent_id, mpnews_title, media_id, mpnews_content, url=None,
+def setMpnewsMessageJson(agent_id, mpnews_title, media_id, mpnews_content, url=None,
                          mpnews_author=None,
                          mpnews_digest=None, touser=None, toparty=None, totag=None,
                          safe=0, enable_id_trans=0, enable_duplicate_check=0, duplicate_check_interval=1800):
@@ -165,7 +166,7 @@ def getMpnewsMessageJson(agent_id, mpnews_title, media_id, mpnews_content, url=N
     return message_json
 
 
-def getMarkdownMessageJson(agent_id, content, touser=None, toparty=None, totag=None,
+def setMarkdownMessageJson(agent_id, content, touser=None, toparty=None, totag=None,
                            enable_duplicate_check=0, duplicate_check_interval=1800):
     message_dic = {
         'touser': touser,

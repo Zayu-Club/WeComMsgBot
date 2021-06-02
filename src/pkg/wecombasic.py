@@ -2,7 +2,7 @@ import json
 import logging
 import logging.config
 import requests
-import globalvar
+from . import globalvar
 
 logging.config.fileConfig(globalvar.DICT_GOLVAR['LOG_CONF_PATH'])
 logger = logging.getLogger('wecombasic')
@@ -47,3 +47,4 @@ def sendMessage(access_token, msg_json):
         logger.info("Message sent successfully.")
     except Exception as e:
         logger.error('Failed to send message.')
+        

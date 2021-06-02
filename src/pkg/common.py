@@ -2,7 +2,8 @@ import sys
 import json
 import logging
 import logging.config
-import globalvar
+#import globalvar
+from . import globalvar
 
 logging.config.fileConfig(globalvar.DICT_GOLVAR['LOG_CONF_PATH'])
 logger = logging.getLogger('common')

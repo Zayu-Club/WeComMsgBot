@@ -1,4 +1,4 @@
-import __init__,common,globalvar,msgJsonHelper,wecombasic
+from pkg import common,globalvar,wecombasic,msgJsonHelper
 
 def main():
     app_config = common.getConfig(globalvar.DICT_GOLVAR['APP_CONF_PATH'],'r')
